@@ -24,6 +24,8 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
+  background-color: ${props => props.theme.colors.blue200};
+  height: 100vh;
 `;
 
 const Details = styled.div`
