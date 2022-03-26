@@ -1,0 +1,3 @@
+exports.getPayments = (req, res) => {
+
+}
