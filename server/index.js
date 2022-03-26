@@ -3,12 +3,13 @@ const {ApolloClient, HttpLink, InMemoryCache} = require('@apollo/client');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
-const PORT = process.env.PORT || 6000;
 const router = express.Router();
 const controller = require('./controllers/controller');
 require('dotenv').config();
 const Knex = require('knex');
 const knexConfig = require('./knexfile');
+const { Model } = require('objection');
+const PORT = process.env.PORT || 6000;
 
 // Initialize knex.
 const knex = Knex(knexConfig.development);
