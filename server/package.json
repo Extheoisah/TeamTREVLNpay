@@ -1,0 +1,26 @@
+{
+    "name": "teamtrev",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+      "build": "next build",
+      "start": "node index.js",
+      "lint": "next lint",
+      "db-migrate": "knex migrate:latest"
+    },
+    "dependencies": {
+      "@apollo/client": "^3.5.10",
+      "body-parser": "^1.19.2",
+      "cors": "^2.8.5",
+      "dotenv": "^16.0.0",
+      "express": "^4.17.3",
+      "graphql": "^16.3.0",
+      "knex": "^1.0.4",
+      "objection": "^3.0.1",
+      "pg": "^8.7.3"
+    },
+    "devDependencies": {
+      
+    }
+  }
+  

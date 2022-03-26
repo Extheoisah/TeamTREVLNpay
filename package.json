@@ -6,8 +6,9 @@
     "server": "nodemon server",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "node server/index.js",
+    "lint": "next lint",
+    "db-migrate": "knex migrate:latest"
   },
   "dependencies": {
     "@apollo/client": "^3.5.10",
