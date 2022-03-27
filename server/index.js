@@ -1,5 +1,4 @@
 const express = require('express');
-const {ApolloClient, HttpLink, InMemoryCache} = require('@apollo/client');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
@@ -25,6 +24,12 @@ app.use(cors());
 
 router.route('/payments')
     .get(controller.getPayments);
+
+router.route('/pay')
+    .post(controller.processPayments);
+
+router.route('/me')
+    .get(controller.getUser);
 
 app.use('/api', router);
 

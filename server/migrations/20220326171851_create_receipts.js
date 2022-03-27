@@ -7,7 +7,7 @@ exports.up = function(knex) {
         table.increments("id").primary();
         table.float("amount");
         table.string("address");
-        table.enu('currency', ['BTC', 'USD'], { useNative: true, enumName: 'currency_type' });
+        table.enu('currency', null, { useNative: true, existingType: true, enumName: 'currency_type' });;
         table.datetime("payment_date");
     });
 };

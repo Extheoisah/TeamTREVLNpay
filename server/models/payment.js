@@ -1,5 +1,4 @@
 const { Model } = require('objection');
-const Receipt = require('./receipt')
 
 class Payment extends Model {
     static get tableName() {
@@ -7,6 +6,9 @@ class Payment extends Model {
     }
   
     static get relationMappings() {
+      
+      const Receipt = require('./receipt');
+  
       return {
         receipt: {
           relation: Model.BelongsToOneRelation,
@@ -19,4 +21,6 @@ class Payment extends Model {
       };
     }
   }
+
+  exports.Payment = Payment;
 

@@ -5,3 +5,5 @@ class Receipt extends Model {
       return 'receipts';
     }
 }
+
+exports.Receipt = Receipt;
