@@ -1,5 +1,8 @@
 module.exports = {
-  content: [],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     colors: {
       white: "#fff",
@@ -12,8 +15,8 @@ module.exports = {
       "green-700": 'rgba(18, 180, 73, 1)',
     },
     fontFamily: {
-      header: ['Montserrat', 'sans-serif'],
-      body: ['Pacifico', 'cursive'],
+      body: ['Montserrat', 'sans-serif'],
+      header: ['Pacifico', 'cursive'],
     },
     extend: {},
   },
