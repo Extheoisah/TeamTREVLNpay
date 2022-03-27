@@ -54,12 +54,12 @@ const Home = () => {
               margin="my-2 md:my-0"
             />
           </div>
-          <div className="h-[350px] w-full mt-4 border">
+          <div className="h-[350px] w-full mt-4">
             {/* import payment history table component */}
             <PaymentHistory />
           </div>
         </section>
-        <aside className="w-full h-full mx-2 border">
+        <aside className="w-full h-full mx-2 details-wrap">
           {/* import payment details component */}
           <PaymentDetails />
         </aside>
