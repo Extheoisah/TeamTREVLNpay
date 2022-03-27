@@ -7,4 +7,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.details li {
+    margin-bottom: 10px;
+    font-size: 0.92rem;
+}
 
