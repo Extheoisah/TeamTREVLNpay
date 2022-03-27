@@ -32,6 +32,9 @@ const PaymentHistory = () => {
             <td>22/03/2022</td>
             <td>Paid</td>
           </tr>
+          <tr className="empty text-center">
+            <td colSpan={4}>You have not made any transactions </td>
+          </tr>
         </tbody>
       </table>
     </div>
