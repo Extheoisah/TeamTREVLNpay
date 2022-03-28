@@ -13,6 +13,7 @@ module.exports = {
       "grey-100": 'rgba(196, 196, 196, 1)',
       "grey-700": 'rgba(130, 132, 134, 1)',
       "green-700": 'rgba(18, 180, 73, 1)',
+      red: "#FF0000"
     },
     fontFamily: {
       body: ['Montserrat', 'sans-serif'],

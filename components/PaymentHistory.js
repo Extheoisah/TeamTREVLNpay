@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IoChevronDownCircleOutline } from "react-icons/io5";
+import PaymentDetails from "./Modals/Paymentdetails";
 
 const paymentHistory = [
   {
@@ -34,6 +35,11 @@ const paymentHistory = [
 
 const PaymentHistory = () => {
   const [openTable, setOpenTable] = useState(true);
+  const [openDetails, setOpenDetails] = useState(false);
+
+  function handleOpenHistoryModal() {
+    setOpenDetails(true)
+  }
 
   return (
     <>
@@ -62,7 +68,8 @@ const PaymentHistory = () => {
                 paymentHistory.map((history) => (
                   <tr
                     key={history.id}
-                    className="text-center border-0 border-y-[1px] border-blue-200"
+                    onClick={handleOpenHistoryModal}
+                    className="text-center border-0 border-y-[1px] border-blue-200 cursor-pointer hover:bg-blue-200"
                   >
                     <td className="py-3 text-left">{history.recipient}</td>
                     <td>{history.amount}</td>
@@ -86,6 +93,7 @@ const PaymentHistory = () => {
             </tbody>
           )}
         </table>
+        {openDetails && <PaymentDetails setIsOpen={setOpenDetails}/>}
       </div>
     </>
   );
