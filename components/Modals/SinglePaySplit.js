@@ -5,7 +5,12 @@ import { Input } from "../../ui/Input";
 import { Button } from "../../ui/Button";
 
 const SinglePaySplit = (props) => {
-  const { isOpen, setIsOpen } = props;
+  const { isOpen, setIsOpen, setOpenSuccessModal } = props;
+
+  function handleSubmit() {
+    setIsOpen(false)
+    setOpenSuccessModal(true)
+  }
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Split Payment Details">
       <div className="flex flex-col">
@@ -39,7 +44,7 @@ const SinglePaySplit = (props) => {
           </div>
         </div>
         <div className="grid place-items-center mt-8 mb-4">
-          <Button padding="0.5rem 3rem">Continue</Button>
+          <Button padding="0.5rem 3rem" onClick={handleSubmit}>Continue</Button>
         </div>
       </div>
     </Modal>

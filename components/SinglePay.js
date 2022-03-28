@@ -1,12 +1,14 @@
-import {useState} from "react"
+import { useState } from "react";
 import { Input } from "../ui/Input";
 import { Label } from "../ui/Label";
 import { Button } from "../ui/Button";
 import CustomSelect from "./CustomSelect";
 import SinglePaySplit from "./Modals/SinglePaySplit";
+import SuccessModal from "./Modals/SuccessModal";
 
 const SinglePay = () => {
-  const [openSplitModal, setOpenSplitModal] = useState(false)
+  const [openSplitModal, setOpenSplitModal] = useState(false);
+  const [openSuccessModal, setOpenSuccessModal] = useState(false);
 
   return (
     <section className="mt-6 -z-10">
@@ -15,7 +17,12 @@ const SinglePay = () => {
           Recipient
         </label>
         <div className="flex items-center gap-x-3">
-          <input className="" type="radio" name="split-payment" onClick={() => setOpenSplitModal(true)}/>
+          <input
+            className=""
+            type="radio"
+            name="split-payment"
+            onClick={() => setOpenSplitModal(true)}
+          />
           <Label name="split-payment" fontSize="1rem">
             Split payment
           </Label>
@@ -36,8 +43,18 @@ const SinglePay = () => {
           className="border border-blue-300 rounded-lg p-3"
         />
       </div>
-      <Button width="100%" margin="2rem 0 0 0">Confirm Payment</Button>
-      {openSplitModal && <SinglePaySplit isOpen={openSplitModal} setIsOpen={setOpenSplitModal}/>}
+      <Button width="100%" margin="2rem 0 0 0">
+        Confirm Payment
+      </Button>
+      {openSplitModal && (
+        <SinglePaySplit
+          isOpen={openSplitModal}
+          setIsOpen={setOpenSplitModal}
+          openSuccessModal={openSuccessModal}
+          setOpenSuccessModal={setOpenSuccessModal}
+        />
+      )}
+      {openSuccessModal && <SuccessModal isOpen={openSuccessModal} setIsOpen={setOpenSuccessModal} />}
     </section>
   );
 };
