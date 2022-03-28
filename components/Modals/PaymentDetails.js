@@ -8,7 +8,6 @@ const PaymentDetails = (props) => {
 
   useEffect(() => {
     setHistory(props.history);
-    console.log('Props history ===', props.history);
   }, [props.history]);
 
   return (

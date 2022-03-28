@@ -11,8 +11,12 @@ const PaymentHistory = (props) => {
   useEffect(() => {
     const getPayments = async () => {
       const _payments = await axios.get('/api/payments');
-      console.log('Payments ====', _payments.data);
-      setPayments(_payments.data);
+      const _history = _payments.data;
+
+      // Sort payments data order by descending;
+      
+      _history.sort((a, b) => b.id - a.id);
+      setPayments(_history);
     };
 
     getPayments();
@@ -26,7 +30,6 @@ const PaymentHistory = (props) => {
   const [openDetails, setOpenDetails] = useState(false);
 
   function handleOpenHistoryModal(history) {
-    console.log('History from function ==', history);
     setHistory(history);
     setOpenDetails(true)
   }
