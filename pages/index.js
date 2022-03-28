@@ -9,6 +9,7 @@ import { MainContainer } from "../components/StyledComponents";
 import { Label } from "../ui/Label";
 import { Input } from "../ui/Input";
 import AboutUs from "../components/AboutUs";
+import SinglePaySplit from "../components/Modals/SinglePaySplit";
 
 const Home = () => {
   const theme = useContext(ThemeContext);
@@ -29,6 +30,7 @@ const Home = () => {
       <Header />
 
       <MainContainer>
+        
         <section>
           <div className="pt-4 mr-4 md:grid md:grid-cols-2 md:gap-x-6 md:gap-y-16 lg:gap-y-[8rem] md:pt-10">
             <h1 className="text-blue-700 font-bold text-xl md:text-2xl lg:text-[2rem] my-4 md:my-0">

@@ -1,50 +1,17 @@
 import { useEffect, useState } from "react";
 import { IoChevronDownCircleOutline } from "react-icons/io5";
 import axios from '../helpers/axios';
-
-const paymentHistory = [
-  {
-    id: 10,
-    recipient: "isah@trev.com",
-    amount: "1 BTC / 5 USD",
-    ratio: "0.2",
-    date: "22/03/2022",
-    status: "Paid",
-  },
-  {
-    id: 11,
-    recipient: "eni@trev.com",
-    amount: "1 BTC / 5 USD",
-    ratio: "0.2",
-    date: "22/03/2022",
-    status: "Pending",
-  },
-  {
-    id: 12,
-    recipient: "vladmir@trev.com",
-    amount: "1 BTC / 5 USD",
-    ratio: "0.2",
-    date: "22/03/2022",
-    status: "Paid",
-  },
-  {
-    id: 13,
-    recipient: "raph@trev.com",
-    amount: "1 BTC / 5 USD",
-    ratio: "0.2",
-    date: "22/03/2022",
-    status: "Pending",
-  },
-];
+import PaymentDetails from "./Modals/Paymentdetails";
 
 const PaymentHistory = (props) => {
   const [openTable, setOpenTable] = useState(true);
   const [payments, setPayments] = useState([]);
+  const [hist, setHistory] = useState([]);
 
   useEffect(() => {
     const getPayments = async () => {
       const _payments = await axios.get('/api/payments');
-      // console.log('Payments ====', _payments.data);
+      console.log('Payments ====', _payments.data);
       setPayments(_payments.data);
     };
 
@@ -56,6 +23,13 @@ const PaymentHistory = (props) => {
       props.refreshHistory(false);
     }
   }, [props, props.refresh])
+  const [openDetails, setOpenDetails] = useState(false);
+
+  function handleOpenHistoryModal(history) {
+    console.log('History from function ==', history);
+    setHistory(history);
+    setOpenDetails(true)
+  }
 
   return (
     <>
@@ -86,22 +60,13 @@ const PaymentHistory = (props) => {
                 payments.map((history) => (
                   <tr
                     key={history.id}
-                    className="text-center border-0 border-y-[1px] border-blue-200"
+                    onClick={() => handleOpenHistoryModal(history.payments)}
+                    className="text-center border-0 border-y-[1px] border-blue-200 cursor-pointer hover:bg-blue-200"
                   >
                     <td className="py-3 text-left">{history.ln_address}</td>
                     <td>{history.amount} Sats</td>
                     <td>{history.btc_usd_ratio}</td>
                     <td>{history.payments.length}</td>
-                    {/* <td>{history.date}</td>
-                    <td
-                      className={`${
-                        history.status === "Paid"
-                          ? "text-green-700"
-                          : "text-blue-700"
-                      } font-medium`}
-                    >
-                      {history.status}
-                    </td> */}
                   </tr>
                 ))
               ) : (
@@ -112,6 +77,7 @@ const PaymentHistory = (props) => {
             </tbody>
           )}
         </table>
+        {openDetails &&  <PaymentDetails history={hist} setIsOpen={setOpenDetails}/>}
       </div>
     </>
   );

@@ -1,10 +1,11 @@
 import CustomSelect from "./CustomSelect";
 import PaymentDetailsHeader from "./PaymentDetailsHeader";
 import SinglePay from "./SinglePay";
-import {IoIosCloseCircleOutline} from "react-icons/io"
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const PaymentDetails = (props) => {
-  const { singlePay,setOpenPaySection } = props;
+  const { singlePay, setOpenPaySection, openSplitModal, setOpenSplitModal } =
+    props;
 
   return (
     <div className="fixed md:static top-full transform translate-y-[-92%] md:translate-y-0 left-0 w-full min-h-[100vh] md:h-full border-t-[1px] border-blue-200 bg-white px-4">
