@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoChevronDownCircleOutline } from "react-icons/io5";
+import axios from '../helpers/axios';
 
 const paymentHistory = [
   {
     id: 10,
     recipient: "isah@trev.com",
     amount: "1 BTC / 5 USD",
+    ratio: "0.2",
     date: "22/03/2022",
     status: "Paid",
   },
@@ -13,6 +15,7 @@ const paymentHistory = [
     id: 11,
     recipient: "eni@trev.com",
     amount: "1 BTC / 5 USD",
+    ratio: "0.2",
     date: "22/03/2022",
     status: "Pending",
   },
@@ -20,6 +23,7 @@ const paymentHistory = [
     id: 12,
     recipient: "vladmir@trev.com",
     amount: "1 BTC / 5 USD",
+    ratio: "0.2",
     date: "22/03/2022",
     status: "Paid",
   },
@@ -27,6 +31,7 @@ const paymentHistory = [
     id: 13,
     recipient: "raph@trev.com",
     amount: "1 BTC / 5 USD",
+    ratio: "0.2",
     date: "22/03/2022",
     status: "Pending",
   },
@@ -34,6 +39,17 @@ const paymentHistory = [
 
 const PaymentHistory = () => {
   const [openTable, setOpenTable] = useState(true);
+  const [payments, setPayments] = useState([]);
+
+  useEffect(() => {
+    const getPayments = async () => {
+      const _payments = await axios.get('/api/payments');
+      // console.log('Payments ====', _payments.data);
+      setPayments(_payments.data);
+    };
+
+    getPayments();
+  }, [])
 
   return (
     <>
@@ -51,22 +67,26 @@ const PaymentHistory = () => {
           <thead className="text-left font-medium text-blue-700">
             <tr className="text-sm text-center border-0 border-y-[1px] border-blue-200">
               <th className="py-3 text-left">Recipient</th>
-              <th>Amount ( BTC/USD )</th>
-              <th>Date</th>
-              <th>Status</th>
+              <th>Amount In Sats</th>
+              <th>BTC/USD Ratio </th>
+              <th>Transactions</th>
+              {/* <th>Date</th>
+              <th>Status</th> */}
             </tr>
           </thead>
           {openTable && (
             <tbody className="text-grey-700 text-sm">
-              {paymentHistory.length > 0 ? (
-                paymentHistory.map((history) => (
+              {payments.length > 0 ? (
+                payments.map((history) => (
                   <tr
                     key={history.id}
                     className="text-center border-0 border-y-[1px] border-blue-200"
                   >
-                    <td className="py-3 text-left">{history.recipient}</td>
-                    <td>{history.amount}</td>
-                    <td>{history.date}</td>
+                    <td className="py-3 text-left">{history.ln_address}</td>
+                    <td>{history.amount} Sats</td>
+                    <td>{history.btc_usd_ratio}</td>
+                    <td>{history.payments.length}</td>
+                    {/* <td>{history.date}</td>
                     <td
                       className={`${
                         history.status === "Paid"
@@ -75,7 +95,7 @@ const PaymentHistory = () => {
                       } font-medium`}
                     >
                       {history.status}
-                    </td>
+                    </td> */}
                   </tr>
                 ))
               ) : (

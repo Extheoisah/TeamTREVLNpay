@@ -8,6 +8,8 @@ export const Input = styledComponents.input`
     padding: ${(props) => props.padding || "0.5rem 0.75rem"};
     border: ${(props) => props.theme.border.style};
     border-radius: ${(props) => props.theme.border.radius};
+    width: 100%;
+    margin-top: 8px;
 
     & ::placeholder {
         color: ${(props) => props.theme.colors.grey100};

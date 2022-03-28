@@ -5,12 +5,12 @@ import { SelectInput } from "./StyledComponents";
 import { Label } from "../ui/Label";
 import { Input } from "../ui/Input";
 
-const CustomSelect = ({ placeholder, label }) => {
+const CustomSelect = ({ placeholder, label, value, onChange }) => {
   return (
     <SelectInput>
       <div className="flex flex-col">
         <Label>{label}</Label>
-        <Input placeholder={placeholder} padding="1rem 86px" />
+        <Input placeholder={placeholder} className="w-full" padding="1rem 86px" value={value} onChange={onChange} />
       </div>
       <div className="select">
         <MySelect />
@@ -24,7 +24,9 @@ export const MySelect = () => {
 
   return (
     <div className=" w-[76px] h-[58px] px-2 py-2 border-r border-blue-300 flex items-center">
-      <Listbox value={selectedItem} onChange={setSelectedItem}>
+      <Listbox value={selectedItem} onChange={(e) => {
+        setSelectedItem(e);
+      }}>
         <div className="relative mt-1">
           <Listbox.Button className="flex items-center justify-center gap-x-1 pl-2">
             <span className="font-semibold text-blue-700">{selectedItem}</span>

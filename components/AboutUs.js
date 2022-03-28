@@ -5,7 +5,7 @@ const AboutUs = () => {
   return (
     <div className="px-8 pb-16 pt-4 hidden md:block">
         <div className='grid place-items-center'>
-      <picture className="flex items-center justify-center mb-20 mt-5 border-[1px] border-blue-200 rounded-full py-[25%] px-[20%] w-fit">
+      <picture className="flex items-center justify-center mb-20 mt-5 border-[1px] border-blue-200 rounded-full py-[15%] px-[10%] w-fit">
         <Image
           src="/icons/bitcoin-logo.svg"
           alt="logo"
