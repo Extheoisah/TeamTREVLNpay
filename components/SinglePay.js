@@ -13,11 +13,11 @@ const validationSchema = Yup.object().shape({
   ratio: Yup.number().required('This field is required!'),
 });
 
-const SinglePay = () => {
+const SinglePay = (props) => {
   const [btnText, setBtnText] = useState('Confirm Payment');
   const [msg, setMsg] = useState({
     type: '',
-    msg: ''
+    txt: ''
   });
   const initialValues = useMemo(
     () => ({
@@ -42,7 +42,7 @@ const SinglePay = () => {
       .then(async (res) => {
         setMsg({
           type: 'success',
-          msg: 'Successfully made payment'
+          txt: 'Successfully made payment'
         });
 
         // Set to default values
@@ -51,35 +51,32 @@ const SinglePay = () => {
         values.ratio = '0.1';
 
         setBtnText('Confirm Payment');
+        props.refreshHistory(true);
       })
       .catch((err) => {
         setMsg({
           type: 'error',
-          msg: 'Error occured while making payment'
+          txt: 'Error occured while making payment'
         });
 
         setBtnText('Confirm Payment');
       });
 
     setSubmitting(false);
-  }, []);
+  }, [props]);
 
   const displayMsg = useCallback(() => {
-    if(msg.msg) {
+    if(msg.txt) {
       setTimeout(() => {
         setMsg({
           type: '',
-          msg: '',
+          txt: '',
         });
       }, 5000);
 
-      if(msg.type === 'success') {
-        return <p className="msgSucess">{msg.msg}</p>
-      } else {
-        return <p className="msgError">{msg.msg}</p>
-      }
+      return msg.txt;
     }
-  }, [msg.msg, msg.type]);
+  }, [msg.txt]);
 
   return (
     <section className="mt-6">
@@ -91,7 +88,7 @@ const SinglePay = () => {
                 Recipient
               </label>
               <div className="flex flex-col gap-y-2 mt-4">
-                {displayMsg()}
+                <p className={msg.txt && msg.type === 'success' ? 'msgSuccess' : 'msgError' }>{displayMsg()}</p>
                 <section>
                   <Label>LN address</Label>
                   <Input

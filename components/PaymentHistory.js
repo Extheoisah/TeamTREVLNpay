@@ -37,7 +37,7 @@ const paymentHistory = [
   },
 ];
 
-const PaymentHistory = () => {
+const PaymentHistory = (props) => {
   const [openTable, setOpenTable] = useState(true);
   const [payments, setPayments] = useState([]);
 
@@ -49,7 +49,13 @@ const PaymentHistory = () => {
     };
 
     getPayments();
-  }, [])
+
+    // if a new payment is made refresh
+    if(props.refresh) {
+      getPayments();
+      props.refreshHistory(false);
+    }
+  }, [props, props.refresh])
 
   return (
     <>

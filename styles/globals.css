@@ -22,12 +22,12 @@
     margin-top: 5px;
 }
 
-.msgSuccess {
+p.msgSuccess {
     color: green;
     font-size: 0.9rem;
 }
 
-.msgError {
+p.msgError {
     color: red;
     font-size: 0.9rem;
 }
