@@ -12,48 +12,6 @@ const PaymentDetails = (props) => {
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Payments">
-      {/* <table className="mb-2">
-        <thead className="">
-          <tr className="flex gap-x-12 items-center">
-            <th>
-              <p className="text-xs text-blue-700">Currency</p>
-            </th>
-            <th>
-              <p className="text-xs text-blue-700">Amount</p>
-            </th>
-            <th>
-              <p className="text-xs text-blue-700">Date</p>
-            </th>
-            <th>
-              <p className="text-xs text-blue-700">Status</p>
-            </th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {history.length
-            ? history.map((h, i) => (
-                
-                <tr className="text-center border" key={i}>
-                  <td className="">{h.currency}</td>
-                  <td className="">{h.amount}</td>
-                  <td className="">
-                    {moment(h.transaction_date).format("DD-MM-YYYY")}
-                  </td>
-                  <td
-                    className={`${
-                      history.status === "SUCCESS"
-                        ? "text-green-700"
-                        : "text-blue-700"
-                    } font-medium text-xs `}
-                  >
-                    {h.status.toLowerCase()}
-                  </td>
-                </tr>
-              ))
-            : null}
-        </tbody>
-      </table> */}
       <table className="md:table-fixed w-full max-w-xl">
         <thead className="text-left font-medium text-blue-700">
           <tr className="text-sm text-center border-0 border-y-[1px] border-blue-200">
