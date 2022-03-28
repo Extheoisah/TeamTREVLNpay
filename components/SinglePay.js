@@ -1,17 +1,21 @@
-import CustomSelect from "./CustomSelect";
+import {useState} from "react"
 import { Input } from "../ui/Input";
 import { Label } from "../ui/Label";
 import { Button } from "../ui/Button";
+import CustomSelect from "./CustomSelect";
+import SinglePaySplit from "./Modals/SinglePaySplit";
 
 const SinglePay = () => {
+  const [openSplitModal, setOpenSplitModal] = useState(false)
+
   return (
-    <section className="mt-6">
+    <section className="mt-6 -z-10">
       <div className="border border-blue-300 rounded-lg px-3 pt-4 pb-2 mt-8 mb-4 relative">
         <label className="text-blue-700 text-xs font-medium absolute -top-[3%] bg-white px-1">
           Recipient
         </label>
         <div className="flex items-center gap-x-3">
-          <input className="" type="radio" name="split-payment" />
+          <input className="" type="radio" name="split-payment" onClick={() => setOpenSplitModal(true)}/>
           <Label name="split-payment" fontSize="1rem">
             Split payment
           </Label>
@@ -33,6 +37,7 @@ const SinglePay = () => {
         />
       </div>
       <Button width="100%" margin="2rem 0 0 0">Confirm Payment</Button>
+      {openSplitModal && <SinglePaySplit isOpen={openSplitModal} setIsOpen={setOpenSplitModal}/>}
     </section>
   );
 };

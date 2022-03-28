@@ -28,3 +28,10 @@ export const SelectInput = styledComponents.form`
         // transform: translateY(-50%);
     }
 `;
+
+// export const StyleModal = styledComponents.div`
+//     .modal-container {
+//         background-color: red;
+//         width
+//     }
+// `
