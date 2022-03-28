@@ -1,4 +1,5 @@
 const { Model } = require('objection');
+const path = require('path');
 
 class Payment extends Model {
     static get tableName() {
@@ -7,12 +8,10 @@ class Payment extends Model {
   
     static get relationMappings() {
       
-      const Receipt = require('./receipt');
-  
       return {
         receipt: {
           relation: Model.BelongsToOneRelation,
-          modelClass: Receipt,
+          modelClass: path.join(__dirname, 'receipt'),
           join: {
             from: 'payments.receipt_id',
             to: 'receipts.id'
