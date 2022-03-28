@@ -13,15 +13,10 @@ const PaymentDetails = (props) => {
       <h2 className="text-blue-700 font-semibold text-lg text-center my-4 md:my-8">
         Payment Details
       </h2>
-      <span
-        onClick={() => setOpenPaySection(false)}
-        className="md:hidden absolute top-5 text-blue-700 cursor-pointer right-5"
-      >
-        <IoIosCloseCircleOutline />
-      </span>
-      {singlePay && <PaymentDetailsHeader />}
-      <CustomSelect placeholder="Enter your wallet ID" label="Sender" />
-      {singlePay ? <SinglePay /> : <MultiplePay/>}
+      <span onClick={() => setOpenPaySection(false)} className="md:hidden absolute top-5 text-blue-700 cursor-pointer right-5"><IoIosCloseCircleOutline/></span>
+      {/* {singlePay && <PaymentDetailsHeader />} */}
+      {/* <CustomSelect placeholder="Enter your wallet ID" label="Sender" /> */}
+      {singlePay ? <SinglePay refreshHistory={props.refreshHistory} /> : ""}
     </div>
   );
 };

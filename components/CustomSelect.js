@@ -5,12 +5,12 @@ import { SelectInput } from "./StyledComponents";
 import { Label } from "../ui/Label";
 import { Input } from "../ui/Input";
 
-const CustomSelect = ({ placeholder, label }) => {
+const CustomSelect = ({ placeholder, label, value, onChange }) => {
   return (
     <SelectInput>
       <div className="flex flex-col">
         <Label>{label}</Label>
-        <Input placeholder={placeholder} padding="1rem 86px" />
+        <Input placeholder={placeholder} className="w-full" padding="1rem 86px" value={value} onChange={onChange} />
       </div>
       <div className="select">
         <MySelect />

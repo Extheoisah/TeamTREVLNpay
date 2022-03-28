@@ -17,6 +17,7 @@ const Home = () => {
   const [fullName, setFullName] = useState("");
   const [openPaySection, setOpenPaySection] = useState(false);
   const [singlePay, setSinglePay] = useState(true);
+  const [refreshHistory, setRefreshHistory] = useState(false);
 
   return (
     <>
@@ -70,14 +71,14 @@ const Home = () => {
           </div>
           <div className="h-[350px] w-full mt-28 md:mt-[7rem] pr-6">
             {/* import payment history table component */}
-            <PaymentHistory />
+            <PaymentHistory refresh={refreshHistory} refreshHistory={setRefreshHistory} />
           </div>
         </section>
         <aside className="relative w-full h-full details-wrap">
           {!openPaySection ? (
             <AboutUs />
           ) : (
-            <PaymentDetails singlePay={singlePay} setOpenPaySection={setOpenPaySection} />
+            <PaymentDetails singlePay={singlePay} setOpenPaySection={setOpenPaySection} refreshHistory={setRefreshHistory} />
           )}
         </aside>
       </MainContainer>
