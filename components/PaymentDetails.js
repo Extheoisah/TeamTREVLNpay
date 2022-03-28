@@ -2,6 +2,7 @@ import CustomSelect from "./CustomSelect";
 import PaymentDetailsHeader from "./PaymentDetailsHeader";
 import SinglePay from "./SinglePay";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import MultiplePay from "./MultiplePay";
 
 const PaymentDetails = (props) => {
   const { singlePay, setOpenPaySection, openSplitModal, setOpenSplitModal } =
@@ -20,7 +21,7 @@ const PaymentDetails = (props) => {
       </span>
       {singlePay && <PaymentDetailsHeader />}
       <CustomSelect placeholder="Enter your wallet ID" label="Sender" />
-      {singlePay ? <SinglePay /> : ""}
+      {singlePay ? <SinglePay /> : <MultiplePay/>}
     </div>
   );
 };
