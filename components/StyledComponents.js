@@ -11,6 +11,6 @@ export const MainContainer = styledComponents.main`
     
     @media (min-width: 1024px) {
         display: grid;
-        grid-template-columns: 1.8fr 1fr;
+        grid-template-columns: 1.5fr 1fr;
     }
 `;

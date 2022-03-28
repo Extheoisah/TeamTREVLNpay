@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import ButtonWrapper from "../components/ButtonWrapper";
@@ -8,9 +8,13 @@ import { ThemeContext } from "styled-components";
 import { MainContainer } from "../components/StyledComponents";
 import { Label } from "../ui/Label";
 import { Input } from "../ui/Input";
+import AboutUs from "../components/AboutUs";
 
 const Home = () => {
   const theme = useContext(ThemeContext);
+
+  const [fullName, setFullName] = useState("");
+  const [openPaySection, setOpenPaySection] = useState(false);
 
   return (
     <>
@@ -39,7 +43,12 @@ const Home = () => {
             />
             <div className="flex flex-col mt-8 md:mt-0">
               <Label htmlFor="fullname">Full name</Label>
-              <Input placeholder="Enter full name" padding="1rem 0.75rem" />
+              <Input
+                placeholder="Enter full name"
+                padding="1rem 0.75rem"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+              />
             </div>
             <ButtonWrapper
               btn1="Single pay"
@@ -52,16 +61,16 @@ const Home = () => {
               color2={theme.colors.blue700}
               label="Payment type"
               margin="my-2 md:my-0"
+              setOpenPaySection={setOpenPaySection}
             />
           </div>
-          <div className="h-[350px] w-full mt-4">
+          <div className="h-[350px] w-full mt-28 md:mt-[7rem] pr-6">
             {/* import payment history table component */}
             <PaymentHistory />
           </div>
         </section>
-        <aside className="w-full h-full mx-2 details-wrap">
-          {/* import payment details component */}
-          <PaymentDetails />
+        <aside className="relative w-full h-full details-wrap">
+          {!openPaySection ? <AboutUs /> : <PaymentDetails />}
         </aside>
       </MainContainer>
     </>

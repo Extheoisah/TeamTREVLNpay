@@ -1,36 +1,17 @@
 /* @import './Home.module.css';   */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Pacifico&display=swap");
 /* @import 'tailwindcss/tailwind.css'; */
-
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
 .details li {
-    margin-bottom: 10px;
-    font-size: 0.92rem;
+  margin-bottom: 20px;
+  font-size: 0.92rem;
+  line-height: 25px;
 }
-
-
-table thead {
-    border-bottom: 1px solid #CCCCCC;
-}
-
-table thead tr th {
-    padding-bottom: 10px;
-}
-
-table tr td {
-    padding: 10px 0px;
-}
-
-table tbody tr {
-    border-bottom: 1px solid #CCCCCC;  
-}
-
-table tbody tr.empty td {}
 
 .details-wrap {
-    border-left: 0.5px solid rgb(59, 130, 246);;
+  border-left: 0.5px solid rgba(0, 141, 255, 0.12);
 }
