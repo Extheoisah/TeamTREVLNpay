@@ -2,6 +2,13 @@ import CustomSelect from "./CustomSelect";
 import { Input } from "../ui/Input";
 import { Label } from "../ui/Label";
 import { Button } from "../ui/Button";
+import { Formik, Form } from "formik";
+import Yup from "yup";
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string().required('This field is required!').email('Input a valid email'),
+  password: Yup.string().required('This field is required!').min(6, 'Password must be up to six(6) characters')
+});
 
 const SinglePay = () => {
   return (
