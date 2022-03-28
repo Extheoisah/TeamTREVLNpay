@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { IoChevronDownCircleOutline } from "react-icons/io5";
 import axios from '../helpers/axios';
-import PaymentDetails from "./Modals/Paymentdetails";
+import PaymentDetails from "./Modals/PaymentDetails";
 
 const PaymentHistory = (props) => {
   const [openTable, setOpenTable] = useState(true);
