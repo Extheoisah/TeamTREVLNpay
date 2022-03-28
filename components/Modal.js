@@ -10,7 +10,7 @@ function Modal({ isOpen, setIsOpen, title, children }) {
     <div className="modal-container z-50 bg-blue-200 fixed inset-0 w-[100%] min-h-full h-[100vh] grid place-content-center px-6">
       {/* <div className="modal-bg"></div> */}
       <div className="modal-wrapper overflow-auto bg-white rounded-lg">
-        <div className="modal-title fixed w-[430px] mx-auto right-1/2 transform translate-x-1/2 grid place-content-center">
+        <div className="modal-title fixed w-[580px] mx-auto right-1/2 transform translate-x-1/2 grid place-content-center">
           <span className="text-blue-700 font-semibold pt-4">
             {title || ""}
           </span>
