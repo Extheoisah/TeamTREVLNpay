@@ -89,7 +89,7 @@ const SinglePay = (props) => {
               </label>
               <div className="flex flex-col gap-y-2 mt-4">
                 <p className={msg.txt && msg.type === 'success' ? 'msgSuccess' : 'msgError' }>{displayMsg()}</p>
-                <section>
+                <section className='flex flex-col'>
                   <Label>LN address</Label>
                   <Input
                     placeholder="Enter recipient lightning address"
@@ -99,7 +99,7 @@ const SinglePay = (props) => {
                   />
                   {errors.address ? <p className="formErrors">{errors.address}</p> : null}
                 </section>
-                <section>
+                <section className='flex flex-col'>
                   <Label>Amount</Label>
                   <Input
                     placeholder="Enter amount in satoshi"
@@ -110,7 +110,7 @@ const SinglePay = (props) => {
                   />
                   {errors.amount ? <p className="formErrors">{errors.amount}</p> : null}
                 </section>
-                <section>
+                <section className='flex flex-col'>
                   <Label>Ratio</Label>
                   <Input
                     placeholder="Enter btc to usd ratio e.g (0.5)"
