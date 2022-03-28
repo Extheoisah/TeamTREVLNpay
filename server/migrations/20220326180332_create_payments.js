@@ -9,7 +9,7 @@ exports.up = function(knex) {
         table.integer("payment_requests_id").references('payment_requests.id');
         table.float("amount");
         table.string("ln_address");
-        table.enu('status', null, { useNative: true, existingType: true, enumName: 'status_type' });
+        table.enu('status', ['SUCCESS', 'FAILURE'], { useNative: true, enumName: 'status_type' });
         table.enu('currency', null, { useNative: true, existingType: true, enumName: 'currency_type' });
         table.datetime("transaction_date");
     });
