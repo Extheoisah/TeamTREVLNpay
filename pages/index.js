@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import ButtonWrapper from "../components/ButtonWrapper";
@@ -15,6 +15,7 @@ const Home = () => {
 
   const [fullName, setFullName] = useState("");
   const [openPaySection, setOpenPaySection] = useState(false);
+  const [singlePay, setSinglePay] = useState(true);
 
   return (
     <>
@@ -62,6 +63,7 @@ const Home = () => {
               label="Payment type"
               margin="my-2 md:my-0"
               setOpenPaySection={setOpenPaySection}
+              setSinglePay={setSinglePay}
             />
           </div>
           <div className="h-[350px] w-full mt-28 md:mt-[7rem] pr-6">
@@ -70,7 +72,11 @@ const Home = () => {
           </div>
         </section>
         <aside className="relative w-full h-full details-wrap">
-          {!openPaySection ? <AboutUs /> : <PaymentDetails />}
+          {!openPaySection ? (
+            <AboutUs />
+          ) : (
+            <PaymentDetails singlePay={singlePay} setOpenPaySection={setOpenPaySection} />
+          )}
         </aside>
       </MainContainer>
     </>

@@ -8,6 +8,7 @@ export const Button = styled.button`
   border: ${(props) => props.border || props.theme.border.style};
   border-radius: ${(props) => props.theme.border.radius};
   padding: ${(props) => props.padding || "0.5rem 1rem"};
+  margin: ${(props) => props.margin};
   width: ${(props) => props.width};
   cursor: ${(props) => props.cursor};
   pointer-events: ${(props) => props.pointerEvents};

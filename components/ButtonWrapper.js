@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Button } from "../ui/Button";
 import { Label } from "../ui/Label";
 
@@ -17,17 +17,20 @@ const ButtonWrapper = (props) => {
     width1,
     width2,
     setOpenPaySection,
+    setSinglePay,
   } = props;
 
   const funcCheck = setOpenPaySection === undefined;
 
   function handleSinglePaySection() {
     if (funcCheck) return;
+    setSinglePay(true)
     setOpenPaySection(true);
   }
 
   function handleMultiPaySection() {
     if (funcCheck) return;
+    setSinglePay(false)
     setOpenPaySection(true);
   }
 

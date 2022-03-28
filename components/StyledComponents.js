@@ -11,6 +11,20 @@ export const MainContainer = styledComponents.main`
     
     @media (min-width: 1024px) {
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
+        grid-template-columns: 1.65fr 1fr;
+    }
+`;
+
+export const SelectInput = styledComponents.form`
+    // border: 1px solid red;
+    position: relative;
+    
+    .select{
+        border-left: none;
+        border-top: none;
+        border-bottom: none;
+        position: absolute;
+        bottom: 0%;
+        // transform: translateY(-50%);
     }
 `;
