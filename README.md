@@ -2,15 +2,14 @@
 
 TEAMTREV LNPAY is a Lightning project built with Galoy APIs for the BOLTFUN shock the web hackathon
 
-[![Team Trev Presentation video Youtube](https://youtu.be/fRip0UqKXD8)](https://youtu.be/fRip0UqKXD8)
+[![Team Trev Presentation video Youtube](http://img.youtube.com/vi/fRip0UqKXD8/0.jpg)](https://youtu.be/fRip0UqKXD8)
 
 ## How To Run
 
-   Clone the repository
-
-   ```git clone https://github.com/elraphty/TeamTREVLNpay.git```
-
-   After cloning the repository, install the dependencies
+   - Clone the repository ```git clone https://github.com/elraphty/TeamTREVLNpay.git```
+   - After cloning, create a .env file ```touch .env```
+   - Copy the env variable from .env.sample file and update with your own values
+   
 
 ### SERVER
 
@@ -26,6 +25,8 @@ TEAMTREV LNPAY is a Lightning project built with Galoy APIs for the BOLTFUN shoc
 ### CLIENT
 
     ```bash
+       
+        yarn install
 
         npm run dev
         # or
