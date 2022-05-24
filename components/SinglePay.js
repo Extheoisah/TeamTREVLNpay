@@ -83,6 +83,7 @@ const SinglePay = (props) => {
       <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={formSubmit}>
         {({ values, isSubmitting, handleChange, errors }) => (
           <Form>
+            <p className='text-blue-700 font-medium px-1'>Note: users must have a galoy wallet</p>
             <div className="border border-blue-300 rounded-lg px-3 pt-4 pb-2 mt-8 mb-4 relative">
               <label className="text-blue-700 text-xs font-medium absolute -top-[3%] bg-white px-1">
                 Recipient
