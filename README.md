@@ -4,6 +4,9 @@ TEAMTREV LNPAY is a Lightning project built with Galoy APIs for the BOLTFUN shoc
 
 [![Team Trev Presentation video Youtube](http://img.youtube.com/vi/fRip0UqKXD8/0.jpg)](https://youtu.be/fRip0UqKXD8)
 
+The web app allows users to specify the ratio of Bitcoin and USD they wish to accept.
+Due to the volatility of Bitcoin, a user can specify the ratio they want to keep in their Bitcoin and also their USD wallet.
+
 ## How To Run
 
    - Clone the repository ```git clone https://github.com/elraphty/TeamTREVLNpay.git```
